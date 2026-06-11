@@ -175,9 +175,7 @@ nav a:not(.active):hover { background: rgba(118, 150, 86, 0.12); }
 }
 
 /* ══ KEPANITIAAN ══ */
-#kepanitiaan .timeline {
-  margin-top: 40px;
-}
+#kepanitiaan .timeline { margin-top: 40px; }
 
 .timeline {
   display: flex;
@@ -187,7 +185,6 @@ nav a:not(.active):hover { background: rgba(118, 150, 86, 0.12); }
   position: relative;
 }
 
-/* Garis vertikal — berhenti di tengah pill terakhir */
 .timeline::before {
   content: '';
   position: absolute;
@@ -207,7 +204,6 @@ nav a:not(.active):hover { background: rgba(118, 150, 86, 0.12); }
   padding-left: 130px;
 }
 
-/* Pill tahun di tengah garis */
 .timeline-year {
   position: absolute;
   left: 0;
@@ -227,7 +223,6 @@ nav a:not(.active):hover { background: rgba(118, 150, 86, 0.12); }
 }
 body.bg-pink .timeline-year { background: #fef5f6; }
 
-/* Items di bawah pill */
 .timeline-items {
   margin-top: 65px;
   display: flex;
@@ -264,15 +259,9 @@ body.bg-pink .timeline-year { background: #fef5f6; }
   flex-shrink: 0;
 }
 
-/* Nutup garis di bawah pill 2022 pakai background pill */
-.last-block .timeline-year {
-  background: linear-gradient(to bottom, #E8EAD5 50%, #E8EAD5 100%);
-}
-body.bg-pink .last-block .timeline-year {
-  background: linear-gradient(to bottom, #fef5f6 50%, #fef5f6 100%);
-}
+.last-block .timeline-year { background: linear-gradient(to bottom, #E8EAD5 50%, #E8EAD5 100%); }
+body.bg-pink .last-block .timeline-year { background: linear-gradient(to bottom, #fef5f6 50%, #fef5f6 100%); }
 
-/* Overlay nutupin garis di bawah pill 2022 */
 .last-block::after {
   content: '';
   position: absolute;
@@ -327,6 +316,13 @@ body.bg-pink .last-block::after { background: #fef5f6; }
   height: 100px;
   width: 400px;
   margin-bottom: 32px;
+  animation: glowFade 3s ease-in-out infinite;
+}
+
+@keyframes glowFade {
+  0%   { opacity: 1;   filter: drop-shadow(0 0 0px rgba(192,121,128,0)); }
+  50%  { opacity: 0.8; filter: drop-shadow(0 0 12px rgba(192,121,128,0.5)); }
+  100% { opacity: 1;   filter: drop-shadow(0 0 0px rgba(192,121,128,0)); }
 }
 
 .kontak-grid {
@@ -372,3 +368,78 @@ body.bg-pink .last-block::after { background: #fef5f6; }
 /* ── BACKGROUND SWITCH ── */
 body.bg-green { background-color: #E8EAD5; }
 body.bg-pink  { background-color: #fef5f6; }
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 1024px) {
+  .page { padding: 24px 60px; }
+  .home-content { gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  .page { padding: 20px 32px; }
+
+  /* Navbar */
+  nav { gap: 2px; padding: 6px 8px; flex-wrap: wrap; justify-content: center; }
+  nav a { font-size: 14px; padding: 6px 12px; }
+
+  /* Home */
+  .portofolio-title img { width: 100%; min-width: unset; }
+  .home-content { flex-direction: column; align-items: center; gap: 24px; }
+  .foto { width: clamp(160px, 50vw, 240px); }
+  .bio-meta { flex-wrap: wrap; gap: 8px; font-size: 16px; }
+  .bio-name-img { max-width: 100%; }
+  .bio-card { padding: 20px; }
+
+  /* Organisasi */
+  .org-title-img { max-width: 90%; }
+  .org-body { flex-direction: column; }
+  .org-foto { width: 100%; height: 180px; }
+
+  /* Kepanitiaan */
+  .timeline::before { left: 40px; width: 2px; }
+  .timeline-year-block { padding-left: 100px; }
+  .timeline-year { font-size: 28px; width: 85px; }
+  .timeline-items { margin-top: 50px; }
+  .timeline-item { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .timeline-role { margin-left: 0; text-align: left; font-size: 12px; }
+  .timeline-event { font-size: 14px; }
+  .last-block::after { left: 35px; width: 10px; }
+
+  /* Sertifikat */
+  .sertif-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  /* Kontak */
+  .kontak-title { width: 100%; height: auto; max-width: 320px; }
+  .kontak-grid { grid-template-columns: 1fr; }
+  .kontak-item span { font-size: 16px; }
+  .kontak-item img { width: 36px; height: 36px; }
+}
+
+@media (max-width: 480px) {
+  .page { padding: 16px 16px; }
+
+  /* Navbar scroll horizontal */
+  nav {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    border-radius: 16px;
+    padding: 6px 8px;
+  }
+  nav a { font-size: 12px; padding: 5px 10px; white-space: nowrap; }
+
+  /* Home */
+  .bio-text { font-size: 14px; }
+  .bio-meta { font-size: 14px; gap: 6px; }
+
+  /* Kepanitiaan */
+  .timeline::before { left: 30px; }
+  .timeline-year-block { padding-left: 80px; }
+  .timeline-year { font-size: 22px; width: 65px; padding: 3px 8px; }
+  .timeline-items { margin-top: 44px; }
+  .last-block::after { left: 25px; width: 10px; }
+
+  /* Sertifikat 1 kolom */
+  .sertif-grid { grid-template-columns: 1fr; }
+}

@@ -376,70 +376,69 @@ body.bg-pink  { background-color: #fef5f6; }
 }
 
 @media (max-width: 768px) {
-  /* Fix background jadi hitam di mobile */
-  .lace-border { mix-blend-mode: normal; opacity: 0.35; }
+  /* Fix background hitam */
+  .lace-border { mix-blend-mode: normal; opacity: 0.3; }
 
-  .page { padding: 20px 24px; overflow-x: hidden; }
+  .page { padding: 16px 52px; overflow-x: hidden; }
 
-  /* Navbar */
+  /* Navbar — muat semua tanpa terpotong */
   nav {
     width: 100%;
     overflow-x: auto;
     flex-wrap: nowrap;
     justify-content: flex-start;
     border-radius: 16px;
-    padding: 6px 8px;
+    padding: 5px 6px;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-  nav a { font-size: 13px; padding: 6px 10px; white-space: nowrap; }
+  nav::-webkit-scrollbar { display: none; }
+  nav a { font-size: 11px; padding: 5px 8px; white-space: nowrap; }
 
   /* Home */
+  .portofolio-title { margin-top: 20px; }
   .portofolio-title img { width: 100%; min-width: unset; }
-  .home-content { flex-direction: column; align-items: center; gap: 20px; }
-  .foto { width: clamp(160px, 50vw, 240px); }
-  .bio-meta { flex-wrap: wrap; gap: 8px; font-size: 15px; }
+  .home-content { flex-direction: column; align-items: center; gap: 16px; margin-top: 16px; }
+  .foto { width: clamp(140px, 45vw, 220px); }
+  .bio-meta { flex-wrap: wrap; gap: 6px; font-size: 13px; }
   .bio-name-img { max-width: 100%; }
-  .bio-card { padding: 16px; }
-  .bio-text { font-size: 14px; }
+  .bio-card { padding: 14px; }
+  .bio-text { font-size: 13px; }
 
   /* Organisasi */
-  .org-title-img { max-width: 90%; }
+  .org-title-img { max-width: 80%; }
   .org-body { flex-direction: column; }
-  .org-foto { width: 100%; height: 180px; }
+  .org-foto { width: 100%; height: 160px; }
   .org-desc { font-size: 13px; word-break: break-word; }
 
-  /* Kepanitiaan - fix overflow */
+  /* Kepanitiaan */
   .timeline { overflow: hidden; }
-  .timeline::before { left: 35px; width: 2px; }
-  .timeline-year-block { padding-left: 90px; }
-  .timeline-year { font-size: 26px; width: 80px; }
-  .timeline-items { margin-top: 50px; }
-  .timeline-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    overflow: hidden;
-  }
-  .timeline-role { margin-left: 0; text-align: left; font-size: 12px; white-space: normal; }
+  .timeline::before { left: 30px; width: 2px; }
+  .timeline-year-block { padding-left: 80px; }
+  .timeline-year { font-size: 22px; width: 65px; padding: 3px 8px; }
+  .timeline-items { margin-top: 44px; }
+  .timeline-item { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .timeline-role { margin-left: 0; text-align: left; font-size: 11px; white-space: normal; }
   .timeline-event { font-size: 13px; }
-  .last-block::after { left: 28px; width: 12px; }
+  .last-block::after { left: 24px; width: 12px; }
 
   /* Sertifikat */
-  .sertif-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .sertif-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
 
   /* Kontak */
-  .kontak-title { width: 100%; height: auto; max-width: 280px; }
+  .kontak-title { width: 100%; height: auto; max-width: 240px; }
   .kontak-grid { grid-template-columns: 1fr; }
-  .kontak-item span { font-size: 15px; }
-  .kontak-item img { width: 36px; height: 36px; }
+  .kontak-item span { font-size: 14px; }
+  .kontak-item img { width: 32px; height: 32px; }
+  .kontak-item { padding: 12px 16px; gap: 12px; }
 }
 
 @media (max-width: 480px) {
-  .page { padding: 16px 16px; }
+  .page { padding: 12px 44px; }
   .sertif-grid { grid-template-columns: 1fr; }
-  .timeline::before { left: 28px; }
-  .timeline-year-block { padding-left: 75px; }
-  .timeline-year { font-size: 22px; width: 65px; padding: 3px 8px; }
-  .timeline-items { margin-top: 44px; }
-  .last-block::after { left: 22px; }
+  .timeline::before { left: 25px; }
+  .timeline-year-block { padding-left: 68px; }
+  .timeline-year { font-size: 20px; width: 58px; padding: 2px 6px; }
+  .timeline-items { margin-top: 38px; }
+  .last-block::after { left: 19px; }
 }

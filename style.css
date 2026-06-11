@@ -376,49 +376,12 @@ body.bg-pink  { background-color: #fef5f6; }
 }
 
 @media (max-width: 768px) {
-  .page { padding: 20px 32px; }
+  /* Fix background jadi hitam di mobile */
+  .lace-border { mix-blend-mode: normal; opacity: 0.35; }
+
+  .page { padding: 20px 24px; overflow-x: hidden; }
 
   /* Navbar */
-  nav { gap: 2px; padding: 6px 8px; flex-wrap: wrap; justify-content: center; }
-  nav a { font-size: 14px; padding: 6px 12px; }
-
-  /* Home */
-  .portofolio-title img { width: 100%; min-width: unset; }
-  .home-content { flex-direction: column; align-items: center; gap: 24px; }
-  .foto { width: clamp(160px, 50vw, 240px); }
-  .bio-meta { flex-wrap: wrap; gap: 8px; font-size: 16px; }
-  .bio-name-img { max-width: 100%; }
-  .bio-card { padding: 20px; }
-
-  /* Organisasi */
-  .org-title-img { max-width: 90%; }
-  .org-body { flex-direction: column; }
-  .org-foto { width: 100%; height: 180px; }
-
-  /* Kepanitiaan */
-  .timeline::before { left: 40px; width: 2px; }
-  .timeline-year-block { padding-left: 100px; }
-  .timeline-year { font-size: 28px; width: 85px; }
-  .timeline-items { margin-top: 50px; }
-  .timeline-item { flex-direction: column; align-items: flex-start; gap: 2px; }
-  .timeline-role { margin-left: 0; text-align: left; font-size: 12px; }
-  .timeline-event { font-size: 14px; }
-  .last-block::after { left: 35px; width: 10px; }
-
-  /* Sertifikat */
-  .sertif-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-
-  /* Kontak */
-  .kontak-title { width: 100%; height: auto; max-width: 320px; }
-  .kontak-grid { grid-template-columns: 1fr; }
-  .kontak-item span { font-size: 16px; }
-  .kontak-item img { width: 36px; height: 36px; }
-}
-
-@media (max-width: 480px) {
-  .page { padding: 16px 16px; }
-
-  /* Navbar scroll horizontal */
   nav {
     width: 100%;
     overflow-x: auto;
@@ -426,20 +389,57 @@ body.bg-pink  { background-color: #fef5f6; }
     justify-content: flex-start;
     border-radius: 16px;
     padding: 6px 8px;
+    -webkit-overflow-scrolling: touch;
   }
-  nav a { font-size: 12px; padding: 5px 10px; white-space: nowrap; }
+  nav a { font-size: 13px; padding: 6px 10px; white-space: nowrap; }
 
   /* Home */
+  .portofolio-title img { width: 100%; min-width: unset; }
+  .home-content { flex-direction: column; align-items: center; gap: 20px; }
+  .foto { width: clamp(160px, 50vw, 240px); }
+  .bio-meta { flex-wrap: wrap; gap: 8px; font-size: 15px; }
+  .bio-name-img { max-width: 100%; }
+  .bio-card { padding: 16px; }
   .bio-text { font-size: 14px; }
-  .bio-meta { font-size: 14px; gap: 6px; }
 
-  /* Kepanitiaan */
-  .timeline::before { left: 30px; }
-  .timeline-year-block { padding-left: 80px; }
+  /* Organisasi */
+  .org-title-img { max-width: 90%; }
+  .org-body { flex-direction: column; }
+  .org-foto { width: 100%; height: 180px; }
+  .org-desc { font-size: 13px; word-break: break-word; }
+
+  /* Kepanitiaan - fix overflow */
+  .timeline { overflow: hidden; }
+  .timeline::before { left: 35px; width: 2px; }
+  .timeline-year-block { padding-left: 90px; }
+  .timeline-year { font-size: 26px; width: 80px; }
+  .timeline-items { margin-top: 50px; }
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .timeline-role { margin-left: 0; text-align: left; font-size: 12px; white-space: normal; }
+  .timeline-event { font-size: 13px; }
+  .last-block::after { left: 28px; width: 12px; }
+
+  /* Sertifikat */
+  .sertif-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  /* Kontak */
+  .kontak-title { width: 100%; height: auto; max-width: 280px; }
+  .kontak-grid { grid-template-columns: 1fr; }
+  .kontak-item span { font-size: 15px; }
+  .kontak-item img { width: 36px; height: 36px; }
+}
+
+@media (max-width: 480px) {
+  .page { padding: 16px 16px; }
+  .sertif-grid { grid-template-columns: 1fr; }
+  .timeline::before { left: 28px; }
+  .timeline-year-block { padding-left: 75px; }
   .timeline-year { font-size: 22px; width: 65px; padding: 3px 8px; }
   .timeline-items { margin-top: 44px; }
-  .last-block::after { left: 25px; width: 10px; }
-
-  /* Sertifikat 1 kolom */
-  .sertif-grid { grid-template-columns: 1fr; }
+  .last-block::after { left: 22px; }
 }

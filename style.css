@@ -379,7 +379,7 @@ body.bg-pink  { background-color: #fef5f6; }
   /* Fix background hitam */
   .lace-border { mix-blend-mode: normal; opacity: 0.3; }
 
-  .page { padding: 16px 56px; overflow-x: hidden; }
+  .page { padding: 16px 44px; overflow-x: hidden; }
 
   /* Navbar — satu baris, ga geser */
   nav {
@@ -431,7 +431,7 @@ body.bg-pink  { background-color: #fef5f6; }
 }
 
 @media (max-width: 480px) {
-  .page { padding: 12px 48px; }
+  .page { padding: 12px 40px; }
   nav a { font-size: 9px; padding: 4px 5px; }
   .sertif-grid { grid-template-columns: 1fr; }
   .timeline::before { left: 25px; }

@@ -379,7 +379,7 @@ body.bg-pink  { background-color: #fef5f6; }
   /* Fix background hitam */
   .lace-border { mix-blend-mode: normal; opacity: 0.3; }
 
-  .page { padding: 16px 52px; overflow-x: hidden; }
+  .page { padding: 16px 72px; overflow-x: hidden; }
 
   /* Navbar — muat semua tanpa terpotong */
   nav {
@@ -434,7 +434,7 @@ body.bg-pink  { background-color: #fef5f6; }
 }
 
 @media (max-width: 480px) {
-  .page { padding: 12px 44px; }
+  .page { padding: 12px 60px; }
   .sertif-grid { grid-template-columns: 1fr; }
   .timeline::before { left: 25px; }
   .timeline-year-block { padding-left: 68px; }

@@ -1,0 +1,374 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #E8EAD5;
+  min-height: 100vh;
+  overflow-y: auto;
+  transition: background-color 0.4s ease;
+}
+
+/* ── LACE BORDER ── */
+.lace-border {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 999;
+  object-fit: fill;
+}
+
+/* ── PAGE WRAPPER ── */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 120px;
+  min-height: 100vh;
+}
+
+/* ── NAVBAR ── */
+nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+nav a {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 8px 22px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:nth-child(odd)  { color: #c27980; }
+nav a:nth-child(even) { color: #769656; }
+nav a.active { background-color: #769656; color: #fff !important; }
+nav a:not(.active):hover { background: rgba(118, 150, 86, 0.12); }
+
+/* ── SECTIONS ── */
+.section { display: none; width: 100%; }
+.section.active { display: block; }
+
+/* ── PORTOFOLIO TITLE ── */
+.portofolio-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  width: 100%;
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+.portofolio-title img {
+  width: clamp(500px, 75vw, 950px);
+  height: auto;
+  mix-blend-mode: screen;
+}
+@keyframes floatUpDown {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ── HOME CONTENT ── */
+.home-content {
+  display: flex;
+  align-items: stretch;
+  gap: 48px;
+  margin-top: 32px;
+  padding-bottom: 60px;
+  width: 100%;
+}
+.foto-wrap { flex: 0 0 auto; display: flex; align-items: center; }
+.foto { width: clamp(260px, 25vw, 360px); height: auto; mix-blend-mode: multiply; }
+.bio-card {
+  flex: 1;
+  background: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 16px;
+  padding: 28px 32px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.bio-name-wrap { margin-bottom: 12px; }
+.bio-name-img { width: 100%; max-width: 580px; height: auto; mix-blend-mode: screen; }
+.bio-meta {
+  display: flex;
+  gap: 40px;
+  font-family: 'Lusitana', serif;
+  font-size: 20px;
+  color: #525436;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.bio-divider { height: 1px; background: rgba(194,121,128,0.4); margin-bottom: 16px; }
+.bio-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #525436;
+  line-height: 1.8;
+}
+.bio-text p + p { margin-top: 10px; }
+
+/* ══ ORGANISASI ══ */
+.org-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+  padding: 24px 0 60px;
+  width: 100%;
+}
+.org-item { display: flex; flex-direction: column; gap: 12px; }
+.org-title-img {
+  max-height: 80px;
+  width: auto;
+  max-width: 55%;
+  filter: brightness(0.6) contrast(1.5);
+}
+.org-card {
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 12px;
+  padding: 20px 24px;
+  backdrop-filter: blur(8px);
+}
+.org-badges { display: flex; gap: 10px; margin-bottom: 16px; }
+.badge-role {
+  background: transparent;
+  border: 1.5px solid #c27980;
+  color: #c27980;
+  border-radius: 999px;
+  padding: 4px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.badge-year {
+  background: transparent;
+  border: 1.5px solid #769656;
+  color: #769656;
+  border-radius: 999px;
+  padding: 4px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.org-body { display: flex; gap: 20px; align-items: flex-start; }
+.org-foto { width: 180px; height: 130px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+.org-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #da8890;
+  line-height: 1.8;
+}
+
+/* ══ KEPANITIAAN ══ */
+#kepanitiaan .timeline {
+  margin-top: 40px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0 60px;
+  width: 100%;
+  position: relative;
+}
+
+/* Garis vertikal — berhenti di tengah pill terakhir */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 55px;
+  top: 24px;
+  bottom: 0;
+  width: 3px;
+  background: #da8890;
+  z-index: 0;
+}
+
+.timeline-year-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+  padding-left: 130px;
+}
+
+/* Pill tahun di tengah garis */
+.timeline-year {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'Luxurious Script', cursive;
+  font-size: 36px;
+  color: #b67178;
+  line-height: 1;
+  border: 2px solid #da8890;
+  border-radius: 999px;
+  padding: 4px 12px;
+  background: #E8EAD5;
+  white-space: nowrap;
+  z-index: 2;
+  width: 110px;
+  text-align: center;
+}
+body.bg-pink .timeline-year { background: #fef5f6; }
+
+/* Items di bawah pill */
+.timeline-items {
+  margin-top: 65px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 16px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.timeline-event {
+  font-family: 'Lusitana', serif;
+  font-size: 16px;
+  color: #6d7049;
+  font-weight: 400;
+}
+
+.timeline-role {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f297a0;
+  text-align: right;
+  margin-left: 24px;
+  flex-shrink: 0;
+}
+
+/* Nutup garis di bawah pill 2022 pakai background pill */
+.last-block .timeline-year {
+  background: linear-gradient(to bottom, #E8EAD5 50%, #E8EAD5 100%);
+}
+body.bg-pink .last-block .timeline-year {
+  background: linear-gradient(to bottom, #fef5f6 50%, #fef5f6 100%);
+}
+
+/* Overlay nutupin garis di bawah pill 2022 */
+.last-block::after {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 45px;
+  bottom: -100px;
+  width: 13px;
+  background: #E8EAD5;
+  z-index: 1;
+}
+body.bg-pink .last-block::after { background: #fef5f6; }
+
+/* ══ SERTIFIKAT ══ */
+.sertif-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  padding: 32px 0 60px;
+  width: 100%;
+}
+
+.sertif-card {
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sertif-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.sertif-frame {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* ══ KONTAK ══ */
+.kontak-content {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0 60px;
+  width: 100%;
+}
+
+.kontak-title {
+  height: 100px;
+  width: 400px;
+  margin-bottom: 32px;
+}
+
+.kontak-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.kontak-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kontak-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.kontak-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.kontak-item span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #a4a86d;
+}
+
+/* ── BACKGROUND SWITCH ── */
+body.bg-green { background-color: #E8EAD5; }
+body.bg-pink  { background-color: #fef5f6; }
